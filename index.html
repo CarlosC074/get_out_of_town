@@ -10,7 +10,93 @@
     <link rel= "stylesheet" href= "assets/css/style.css">
 
 </head>
+<header>
+    <div id= "top-bar">
+    <p><strong id= "top-bar-content">Get Out of Town! -Find cities, hotels, and weather in this one simple page!</strong></p>
+    </div>
+</header>
 <body>
+    <!--start of input field-->
+    <div class= "level">
+        <div class= "level-item">
+            <div class= "field is-grouped">
+                <label class= "label" id= "city-label">city</label>
+                <div class= "control">
+                    <input class= "input" type= "text" placeholder="city name">
+                </div>
+                <div class= "control">
+                    <button class= "button is-link">submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end of input field-->
+    <!--start of flex box for: city info, hotel info, and weather tab. will be created using Bulma's Tile classes-->
+    <div class= "tile is-ancestor info-container">
+        <!--city card-->
+        <div class= "tile is-parent">
+            <div class= "tile is-child box" id= "city-container">
+                <p class= "title city-name">
+                    Sample city name
+                </p>
+                <p class= "city-facts">
+                    City facts
+                </p>
+            </div>
+        </div>
+        <!--city card end-->
+        <!--hotel card-->
+        <div class= "tile is-parent">
+            <div class= "tile is-child box" id= "hotel-card">
+                <p class= "title" id= "hotel-name">
+                    Hotel name
+                </p>
+                <p class= "subtitle">
+                    Hotel address
+                    <p class= "hotel-address">123 Sesame Street</p>
+                </p>
+                <br>
+                <br>
+                <p class= "subtitle">
+                    Hotel rate
+                    <p><p class= "hotel-price">$4.2B </p> /night</p>
+                </p>
+
+            </div>
+        </div>
+        <!--hotel card end-->
+        <!--weather card-->
+        <div class= "tile is-parent is-2">
+            <div class= "tile is-child box" id= "weather-card">
+                <div class= "title" id= "temp">
+                    Temperature
+                </div>
+                <div id= "icon">
+                    <p>pretend I am an image</p>
+                </div>
+                <div>
+                    <p id= "weather-summary">sunny</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--end of flex/tile box-->
+    <!--start of maps window-->
+    <div class= "columns">
+        <div class= "column" id= "iframe-pretend">
+            <p class= "title">
+                Just for now
+            </p>
+            <p>
+                This element will be a div for now, but the size is to depict the iframe element that is intended to be there for the maps API. When the API is ready to display, 
+                change the content of the "iframe-pretend" element and have the contents display the map. Also, shut off the "iframe-pretend" id to turn off this 
+                awesome color.
+            </p>
+
+        </div>
+    </div>
+    <!--end of maps window-->
     <form id='hotelLocation'><input class='searchInput' type='text' placeholder='Search..'><button type='submit'>Submit</button></form>
     <header>Find me a Hotel Please!</header>
     <section class='hotelList'></section>
