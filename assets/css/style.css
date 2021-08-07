@@ -1,0 +1,13 @@
+#locationSearch {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    font-size: 17px;
+    border: solid;
+    padding: 16px 19px;
+    }
+    
+    #locationSearch input[type=text] {
+        border: 1px solid #ccc; 
+    }
