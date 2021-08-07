@@ -1,0 +1,11 @@
+#top-bar {
+    background-color: rgb(54, 110, 231);
+    padding: 4em 0 4em 0;
+}
+
+#top-bar-content {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
