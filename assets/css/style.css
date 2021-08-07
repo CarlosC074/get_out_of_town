@@ -1,0 +1,37 @@
+#top-bar {
+    background-color: rgb(54, 110, 231);
+    padding: 4em 0 4em 0;
+}
+
+#top-bar-content {
+    color: white;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-container > div {
+    margin: 20px;
+
+}
+
+#iframe-pretend {
+    background-color: violet;
+    margin: 20px 30px 0 30px;
+    height: 50vh;
+}
+
+#weather-card {
+    background-color: rgb(158, 158, 158);
+}
+
+#weather-card > div {
+    display: flex;
+    justify-content: center;
+}
+
+#city-label {
+    font-size: larger;
+   margin: 0 20px 0 0;
+}
