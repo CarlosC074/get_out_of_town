@@ -51,4 +51,59 @@ fetchHotel.addEventListener('submit', function (e) {
     var searchInput = document.querySelector('.input').value
     //call getHotels with search input
     getHotels(searchInput)
+    getWeather(searchInput)
 })
+
+
+var weather = document.querySelector('ul')
+var description = document.querySelector('ul')
+var wind = document.querySelector('ul')
+var feels = document.querySelector('ul')
+var fetchWeather = document.querySelector('#weather')
+var search = document.querySelector('.input').innerHTML
+
+console.log (fetchWeather)
+
+function getWeather(search) {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=31b6611bb5184f2c38241bc1d9103a1d`, {
+       'method': 'GET',
+
+        }
+    )
+        .then(function (response) {
+            console.log(response)
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data)
+            console.log(data.main.temp)
+            console.log(data.weather[0].description)
+            console.log(data.main.feels_like)
+            
+            
+            var weatherEl = document.querySelector('#tempDisplay');
+            weatherEl.textContent = Math.round((parseInt(data.main.temp) - 273.15) * (9/5) + 32) + "F"
+            // math.round to round to nearest integer. caluclation from kelvin to fahrenheit. 
+
+            var descriptionEl = document.querySelector('#description')
+            descriptionEl.textContent = data.weather[0].description
+
+            var feelsEl = document.querySelector('#feelsLike')
+            feelsEl.textContent = "Feels like " + Math.round((parseInt(data.main.feels_like) - 273.15) * (9/5) + 32) + "F"
+        
+
+
+            
+        });
+}
+
+
+// fetchWeather.addEventListener('submit', function (e) {
+//     //prevent default behavior
+//     e.preventDefault()
+//     console.log (search)
+//     //get search value
+//     var searchInput = document.querySelector('.input').value
+//     //call getWeather with search input
+//     getWeather(searchInput)
+// }) 
