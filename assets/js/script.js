@@ -1,6 +1,7 @@
-var hotelList = document.querySelector('ul')
+var hotelList = document.querySelector('#hotel-card')
 var fetchHotel = document.getElementById('hotelLocation')
 
+//api fetch function
 function getHotels(search) {
     fetch(`https://hotels4.p.rapidapi.com/locations/search?query=${search}&locale=en_US`, {
         'method': 'GET',
@@ -32,7 +33,7 @@ function getHotels(search) {
 
                         hotelList.appendChild(hotelEl)
                         //	L.marker([51.5, -0.09]).addTo(mymap).bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
-                        console.log('lattitude', element.lattitude)
+                        console.log('latitude', element.latitude)
                         console.log('longitude', element.longitude)
                     });
                 }
@@ -47,7 +48,7 @@ fetchHotel.addEventListener('submit', function (e) {
     //prevent default behavior
     e.preventDefault()
     //get search value
-    var searchInput = document.querySelector('.searchInput').value
+    var searchInput = document.querySelector('.input').value
     //call getHotels with search input
     getHotels(searchInput)
 })
