@@ -43,6 +43,8 @@ function getHotels(search) {
 
 //when for submitted, get value of search then pass to getHotels
 
+//New comment
+
 //add eventlistener to fetchhotel.
 fetchHotel.addEventListener('submit', function (e) {
     //prevent default behavior
