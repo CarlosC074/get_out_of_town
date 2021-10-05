@@ -13,13 +13,6 @@
 
 .info-container > div {
     margin: 20px;
-
-}
-
-#iframe-pretend {
-    background-color: violet;
-    margin: 20px 30px 0 30px;
-    height: 50vh;
 }
 
 #weather-card {
@@ -35,6 +28,7 @@
     font-size: larger;
    margin: 0 20px 0 0;
 }
+
 #locationSearch {
     float: left;
     display: block;

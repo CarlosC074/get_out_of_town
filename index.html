@@ -38,6 +38,18 @@
                 <p class= "title city-name">
                     Sample city name
                 </p>
+                <div class= "tile is-parent info-container">
+                    <div class= "tile is-child box is-5" id= "weather-card">
+                        <header class="subtitle has-text-centered">Weather</header>
+                        <div><span id='tempDisplay'></span></div>
+                        <div><span id='description'></span></div>
+                        <div><span id='feelsLike'></span></div>
+                        <section class='weather'></section>
+                    </div>
+                    <div class="tile is-child box" id= "city-pic">
+                        <p>sample text</p>
+                    </div>
+                </div>
                 <p class= "city-facts">
                     City facts
                 </p>
@@ -46,11 +58,12 @@
         <!--city card end-->
         <!--hotel card-->
         <div class= "tile is-parent">
+            
             <div class= "tile is-child box" id= "hotel-card">
                 <p class= "title" id= "hotel-name">
-                    Hotel name
+                    hotels
                 </p>
-                <p class= "subtitle">
+                <p class= "subtitle hotel-name">
                     Hotel address
                     <p class= "hotel-address">123 Sesame Street</p>
                 </p>
@@ -62,36 +75,8 @@
                 </p>
 
             </div>
+            
         </div>
-        <!--hotel card end-->
-        <!--weather card-->
-        <div class= "tile is-parent is-2">
-            <div class= "tile is-child box" id= "weather-card">
-                <header>Weather</header>
-                <div><span id='tempDisplay'></span></div>
-                <div><span id='description'></span></div>
-                <div><span id='feelsLike'></span></div>
-                <section class='weather'></section>
-
-            </div>
-        </div>
-    </div>
-    <!--end of flex/tile box-->
-    <!--start of maps window-->
-    <div class= "columns">
-        <div class= "column" id= "iframe-pretend">
-            <p class= "title">
-                Just for now
-            </p>
-            <p>
-                This element will be a div for now, but the size is to depict the iframe element that is intended to be there for the maps API. When the API is ready to display, 
-                change the content of the "iframe-pretend" element and have the contents display the map. Also, shut off the "iframe-pretend" id to turn off this 
-                awesome color.
-            </p>
-
-        </div>
-    </div>
-    <!--end of maps window-->
     <script src="./assets/js/script.js"></script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+//--------------------------------------------------------------HOTELS API-------------------------------------------------------------------------
+
 var hotelList = document.querySelector('#hotel-card')
 var fetchHotel = document.getElementById('hotelLocation')
 
@@ -11,12 +13,13 @@ function getHotels(search) {
         }
     })
         .then(function (response) {
-            console.log(response)
             return response.json();
         })
         .then(function (data) {
-            console.log(data)
-            hotelList.innerHTML = ''
+            console.log(data);
+            const destinationID = data.suggestions[0].entities[0].destinationId;
+            console.log(destinationID);
+            /*hotelList.innerHTML = ''
             for (var i = 0; i < data.suggestions.length; i++) {
                 var item = data.suggestions[i]
                 console.log(item.group)
@@ -37,26 +40,37 @@ function getHotels(search) {
                         console.log('longitude', element.longitude)
                     });
                 }
-            }
+            }*/
         });
 }
 
-//when for submitted, get value of search then pass to getHotels
+//-------------------------------------------------------------HOTELS APP PART 2: FETCHING HOTEL SPECIFICS-------------------------------------------------------------------------
 
-//New comment
+function getHotelSpecs(destinationID) {
+    fetch('')
+
+}
+
+//--------------------------------------------------------------ADD EVENT LISTENER TO BUTTON-------------------------------------------------------------------------
+
 
 //add eventlistener to fetchhotel.
 fetchHotel.addEventListener('submit', function (e) {
     //prevent default behavior
     e.preventDefault()
     //get search value
-    var searchInput = document.querySelector('.input').value
+    var searchPut = document.querySelector('.input').value
+    //search value is modified to fit with HTTP paradigms: In searches, spaces are replaced with %20 since spaces are not allowed in URLs.
+    var searchInput = searchPut.replace(/ /g, "%20");
     //call getHotels with search input
     getHotels(searchInput)
     getWeather(searchInput)
 })
 
 
+//--------------------------------------------------------------WEATHER APP-------------------------------------------------------------------------
+//Weather api: functional
+//TODO: modify elements being appended. 
 var weather = document.querySelector('ul')
 var description = document.querySelector('ul')
 var wind = document.querySelector('ul')
@@ -109,3 +123,6 @@ function getWeather(search) {
 //     //call getWeather with search input
 //     getWeather(searchInput)
 // }) 
+
+//Hard Rock Hotel & Casino <span class='highlighted'>Sacramento</span>, Wheatland, California, United States of America
+//
