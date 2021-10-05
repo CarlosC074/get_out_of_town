@@ -29,6 +29,15 @@
    margin: 0 20px 0 0;
 }
 
+.hotel-title {
+    text-decoration: underline;
+}
+
+.placeholder-image {
+    background-color: burlywood;
+    
+}
+
 #locationSearch {
     float: left;
     display: block;

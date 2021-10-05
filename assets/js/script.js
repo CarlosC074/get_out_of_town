@@ -19,28 +19,7 @@ function getHotels(search) {
             console.log(data);
             const destinationID = data.suggestions[0].entities[0].destinationId;
             console.log(destinationID);
-            /*hotelList.innerHTML = ''
-            for (var i = 0; i < data.suggestions.length; i++) {
-                var item = data.suggestions[i]
-                console.log(item.group)
-                if (item.group === 'HOTEL_GROUP') {
-                    item.entities.forEach(element => {              //repoList.appendChild(listItem);   
-                        console.log(element)
-                        var hotelEl = document.createElement('li');
-                        hotelEl.classList = 'list-item flex-row justify-space-between align-center';
-
-                        var titleEl = document.createElement('span');
-                        titleEl.textContent = element.name;
-
-                        hotelEl.appendChild(titleEl);
-
-                        hotelList.appendChild(hotelEl)
-                        //	L.marker([51.5, -0.09]).addTo(mymap).bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
-                        console.log('latitude', element.latitude)
-                        console.log('longitude', element.longitude)
-                    });
-                }
-            }*/
+            
         });
 }
 
@@ -60,6 +39,11 @@ fetchHotel.addEventListener('submit', function (e) {
     e.preventDefault()
     //get search value
     var searchPut = document.querySelector('.input').value
+    //captializes the search input as savedCity to display on the dash
+    const namedCity =  searchPut.charAt(0).toUpperCase() + searchPut.slice(1);
+    const cityTitle = document.querySelector(".city-name");
+    cityTitle.innerHTML = namedCity;
+    console.log(namedCity);
     //search value is modified to fit with HTTP paradigms: In searches, spaces are replaced with %20 since spaces are not allowed in URLs.
     var searchInput = searchPut.replace(/ /g, "%20");
     //call getHotels with search input
@@ -112,17 +96,3 @@ function getWeather(search) {
             
         });
 }
-
-
-// fetchWeather.addEventListener('submit', function (e) {
-//     //prevent default behavior
-//     e.preventDefault()
-//     console.log (search)
-//     //get search value
-//     var searchInput = document.querySelector('.input').value
-//     //call getWeather with search input
-//     getWeather(searchInput)
-// }) 
-
-//Hard Rock Hotel & Casino <span class='highlighted'>Sacramento</span>, Wheatland, California, United States of America
-//

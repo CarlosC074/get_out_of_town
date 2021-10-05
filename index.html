@@ -33,7 +33,7 @@
     <!--start of flex box for: city info, hotel info, and weather tab. will be created using Bulma's Tile classes-->
     <div class= "tile is-ancestor info-container">
         <!--city card-->
-        <div class= "tile is-parent">
+        <div class= "tile is-parent is-vertical">
             <div class= "tile is-child box" id= "city-container">
                 <p class= "title city-name">
                     Sample city name
@@ -53,30 +53,24 @@
                 <p class= "city-facts">
                     City facts
                 </p>
+                
             </div>
         </div>
         <!--city card end-->
         <!--hotel card-->
-        <div class= "tile is-parent">
-            
-            <div class= "tile is-child box" id= "hotel-card">
-                <p class= "title" id= "hotel-name">
-                    hotels
-                </p>
-                <p class= "subtitle hotel-name">
-                    Hotel address
-                    <p class= "hotel-address">123 Sesame Street</p>
-                </p>
-                <br>
-                <br>
-                <p class= "subtitle">
-                    Hotel rate
-                    <p><p class= "hotel-price">$4.2B </p> /night</p>
-                </p>
+        <div class= "tile box is-vertical">
+            <p class="title hotel-title">Hotels</p>
+            <div class="tile is-parent">
+                <article class="tile is-child">
+                    <p class="title">Hotel name</p>
+                    <p class="content">Very long hotel address it should fit a lot of characters</p>
+                </article>
+                <div class="tile is-child placeholder-image">
 
+                </div>
             </div>
-            
         </div>
+        <!--end of hotel card-->
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
