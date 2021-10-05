@@ -1,3 +1,32 @@
+//--------------------------------------------------------------GLOBAL DATE VARIABLE-------------------------------------------------------------------------
+
+//Reformat the dates to fit into 
+function join(t, a, s) {
+    function format(m) {
+       let f = new Intl.DateTimeFormat('en', m);
+       return f.format(t);
+    }
+    return a.map(format).join(s);
+ }
+
+ //allows more days to be added to the current date
+ Date.prototype.addDays = function (days) {
+    let date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+  }
+
+  //current date
+ let myDate = new Date;
+  //next day
+ let tomorrow = myDate.addDays(1);
+ 
+ let reformat = [{year: 'numeric'}, {month: '2-digit'}, {day: '2-digit'}];
+ let myDateFinal = join(myDate, reformat, '-');
+ let tomorrowFinal = join(tomorrow, reformat, '-');
+ console.log(tomorrowFinal);
+
+
 //--------------------------------------------------------------HOTELS API-------------------------------------------------------------------------
 
 var hotelList = document.querySelector('#hotel-card')
@@ -19,14 +48,14 @@ function getHotels(search) {
             console.log(data);
             const destinationID = data.suggestions[0].entities[0].destinationId;
             console.log(destinationID);
-            
+            getHotelSpecs(destinationID);
         });
 }
 
 //-------------------------------------------------------------HOTELS APP PART 2: FETCHING HOTEL SPECIFICS-------------------------------------------------------------------------
 
 function getHotelSpecs(destinationID) {
-    fetch('')
+    
 
 }
 
