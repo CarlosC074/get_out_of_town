@@ -57,6 +57,21 @@ function getHotels(search) {
 function getHotelSpecs(destinationID) {
     
 
+    fetch(`https://hotels4.p.rapidapi.com/properties/list?destinationId=${destinationID}&pageNumber=1&pageSize=5&checkIn=${myDateFinal}&checkOut=${tomorrowFinal}&adults1=1&sortOrder=PRICE&locale=en_US&currency=USD`, {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "hotels4.p.rapidapi.com",
+		"x-rapidapi-key": "b5c1a38213msh414830d58078f5dp146006jsnfc09beefafa7"
+	}
+})
+.then(response => {
+	return response.json();
+})
+.then(function (data)  {
+    console.log(data);
+
+})
+
 }
 
 //--------------------------------------------------------------ADD EVENT LISTENER TO BUTTON-------------------------------------------------------------------------
@@ -90,8 +105,6 @@ var wind = document.querySelector('ul')
 var feels = document.querySelector('ul')
 var fetchWeather = document.querySelector('#weather')
 var search = document.querySelector('.input').innerHTML
-
-console.log (fetchWeather)
 
 function getWeather(search) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=31b6611bb5184f2c38241bc1d9103a1d`, {
