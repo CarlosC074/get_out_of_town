@@ -33,9 +33,13 @@
     text-decoration: underline;
 }
 
-.placeholder-image {
-    background-color: burlywood;
-    
+.loadingText {
+    color: rgb(148, 148, 148);
+}
+
+img {
+    height: 100%;
+    width: 100%;
 }
 
 #locationSearch {

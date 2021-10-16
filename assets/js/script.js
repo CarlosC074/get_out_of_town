@@ -26,7 +26,6 @@ function join(t, a, s) {
  let tomorrowFinal = join(tomorrow, reformat, '-');
  console.log(tomorrowFinal);
 
-
 //--------------------------------------------------------------HOTELS API-------------------------------------------------------------------------
 
 var hotelList = document.querySelector('#hotel-card')
@@ -70,6 +69,29 @@ function getHotelSpecs(destinationID) {
 .then(function (data)  {
     console.log(data);
 
+    const body = data.data.body.searchResults.results;
+    
+    //const hotelName = body[i].name;
+    //const hotelAddress = body[i].address.streetAddress;
+    //const hotelImg = body[i].optimizedThumbUrls.srpDesktop;
+    const hotelSection = document.querySelector("#hotelCard");
+
+    hotelSection.innerHTML = body.map(result => 
+        ` <div class="tile is-parent">
+        <article class="tile is-child" id="hotelCard">
+            <p class="title">${result.name}</p>
+            <p class="content">${result.address.streetAddress}</p>
+        </article>
+        <div class="tile is-child hotelPic">
+            <img src=
+            ${result.optimizedThumbUrls.srpDesktop}
+            alt = "sample-image">
+        </div>
+    </div>`
+        
+    )
+
+
 })
 
 }
@@ -81,6 +103,9 @@ function getHotelSpecs(destinationID) {
 fetchHotel.addEventListener('submit', function (e) {
     //prevent default behavior
     e.preventDefault()
+    //As soon as the button is clicked, text shows up on the hotels tab to indicate to the user that hotels are being found, This text will dissappear and be replaced with the complete results
+    const hotelCard = document.querySelector("#hotelCard");
+    hotelCard.innerHTML = '<p class="loadingText title">The nearest hotels will appear shortly</p>'
     //get search value
     var searchPut = document.querySelector('.input').value
     //captializes the search input as savedCity to display on the dash
