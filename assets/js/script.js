@@ -78,23 +78,34 @@ function getHotelSpecs(destinationID) {
 
     hotelSection.innerHTML = body.map(result => 
         ` <div class="tile is-parent">
-        <article class="tile is-child" id="hotelCard">
-            <p class="title">${result.name}</p>
+        <article class="tile is-child">
+            <p class="title hotelName">${result.name}</p>
             <p class="content">${result.address.streetAddress}</p>
         </article>
         <div class="tile is-child hotelPic">
             <img src=
             ${result.optimizedThumbUrls.srpDesktop}
-            alt = "sample-image">
+            alt = "${result.name}">
         </div>
     </div>`
-        
     )
+    
+    const hotels = document.getElementsByClassName("hotelName");
+    
+    for(var i =0; i <= hotels.length; i++) {
+        const hotelName = hotels[i].textContent;
+        console.log(hotelName);
 
+        hotels[i].addEventListener('click', function() {
+            console.log("This works")
+        })
+    }
+    
 
 })
 
 }
+
 
 //--------------------------------------------------------------ADD EVENT LISTENER TO BUTTON-------------------------------------------------------------------------
 
@@ -156,10 +167,8 @@ function getWeather(search) {
             descriptionEl.textContent = data.weather[0].description
 
             var feelsEl = document.querySelector('#feelsLike')
-            feelsEl.textContent = "Feels like " + Math.round((parseInt(data.main.feels_like) - 273.15) * (9/5) + 32) + "F"
-        
-
-
-            
+            feelsEl.textContent = "Feels like " + Math.round((parseInt(data.main.feels_like) - 273.15) * (9/5) + 32) + "F"            
         });
 }
+
+
