@@ -91,16 +91,31 @@ function getHotelSpecs(destinationID) {
     )
     
     const hotels = document.getElementsByClassName("hotelName");
+    console.log(hotels)
+    //When generating event listeners for the name tags, the data has to be parsed using the proper
+    //array index on the body array. To match indexes, objects are made with an index, and the element.
+    const hotelsAndIndex = [];
     
-    for(var i =0; i <= hotels.length; i++) {
-        const hotelName = hotels[i].textContent;
-        console.log(hotelName);
-
-        hotels[i].addEventListener('click', function() {
-            console.log("This works")
-        })
+    //the map function refuses to apply here, so a normal for loop is used.
+    for(var i =0; i < hotels.length; i++) {
+        hotelsAndIndex[i] = {
+            index: i,
+            element: hotels[i],
+        }
     }
     
+    console.log(hotelsAndIndex[0].element);
+    for(var i=0; i < hotelsAndIndex.length; i++) {
+        const hotel = hotelsAndIndex[i].element;
+        const index = hotelsAndIndex[i].index;
+
+        hotel.addEventListener('click', function() {
+            const hotelName = body[index].name;
+            const landmarks = body[index].landmarks;
+
+            console.log(hotelName);
+        })
+    }
 
 })
 
