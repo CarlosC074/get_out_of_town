@@ -112,12 +112,42 @@ function getHotelSpecs(destinationID) {
         hotel.addEventListener('click', function() {
             const hotelName = body[index].name;
             const landmarks = body[index].landmarks;
+            const landmarkTab = document.querySelector("#landmarks")
 
-            console.log(hotelName);
+                landmarkTab.innerHTML = 
+                     `
+                    <article>
+                            <p class="title">Landmarks near ${hotelName}</p>
+                            <br>
+                            <ul id= "landmarkList">
+    
+                            </ul>
+                    </article>
+                    `
+
+            for (var i =0; i < landmarks.length; i++) {
+                const landmark = landmarks[i].label;
+                const distance = landmarks[i].distance;
+                let landmarkList = document.querySelector("#landmarkList");
+
+                const landmarkListNode = document.createElement('li');
+                var textNode = document.createTextNode(`${landmark}: ${distance}`);
+                landmarkListNode.appendChild(textNode);
+                landmarkListNode.classList.add("landmark");
+
+                landmarkList.appendChild(landmarkListNode);
+
+            }
+
         })
     }
 
 })
+
+    .catch(function(err) {
+        let hotelCard = document.querySelector("#hotelCard");
+        hotelCard.innerHTML = '<p class="loadingText title">It seems like the search did not got well, try something else.</p>'
+    })
 
 }
 
